@@ -25,29 +25,24 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-        'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
-        'DBDriver'     => 'MySQLi',
+        'DSN'          => 'sqlite:' . WRITEPATH . 'database/store.db', // Ruta completa al archivo SQLite
+        'hostname'     => '', // No es necesario para SQLite
+        'username'     => '', // No es necesario para SQLite
+        'password'     => '', // No es necesario para SQLite
+        'database'     => WRITEPATH . 'database/store.db', // Ruta completa al archivo SQLite
+        'DBDriver'     => 'SQLite3',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
-        'charset'      => 'utf8mb4',
-        'DBCollat'     => 'utf8mb4_general_ci',
+        'DBDebug'      => true, // Habilita la depuración en desarrollo
+        'charset'      => 'utf8', // Opcional para SQLite
+        'DBCollat'     => 'utf8_general_ci', // Opcional para SQLite
         'swapPre'      => '',
         'encrypt'      => false,
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
-        'numberNative' => false,
-        'dateFormat'   => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
+        'port'         => 0, // No aplica para SQLite
+        'numberNative' => false, // Opcional para manejar tipos numéricos nativos
     ];
 
     //    /**
